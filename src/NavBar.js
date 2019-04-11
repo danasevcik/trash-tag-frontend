@@ -1,8 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
 
-  return <h1>NavBar goes here</h1>
+  return (
+    <div>
+      <Link to="/home">
+        Home
+      </Link>
+      <Link to="/home/upcoming-projects">
+        Upcoming Projects
+      </Link>
+    </div>
+
+  )
 
 
 }

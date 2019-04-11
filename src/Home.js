@@ -1,5 +1,7 @@
 import React from 'react';
+import { Route, Switch } from "react-router-dom";
 import CompletedProjects from './CompletedProjects'
+import UpcomingProjects from './UpcomingProjects'
 
 class Home extends React.Component {
 
@@ -23,12 +25,25 @@ class Home extends React.Component {
   }
 
   // ongoingProjects
+  upcomingProjects = () => {
+    let upcomingProjects = this.state.projects.filter(project => {
+      return project.completed === false
+    })
+    return upcomingProjects
+  }
 
   render() {
+    console.log(this.upcomingProjects())
     return (
       <div>
-        <h1>Home goes here</h1>
-        <CompletedProjects projects={this.completedProjects()} />
+        <Switch>
+          <Route path="/home/upcoming-projects" render={(routerProps) => (
+            <UpcomingProjects projects={this.upcomingProjects()}/>
+          )}/>
+          <Route path="/home" render={(routerProps) => (
+            <CompletedProjects projects={this.completedProjects()} />
+          )}/>
+        </Switch>
       </div>
 
     )
