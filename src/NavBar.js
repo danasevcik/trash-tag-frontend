@@ -8,6 +8,9 @@ const NavBar = () => {
       <Link to="/home">
         Home
       </Link>
+      <Link to="/signup">
+        Signup
+      </Link>
       <Link to="/home/upcoming-projects">
         Upcoming Projects
       </Link>
@@ -15,7 +18,6 @@ const NavBar = () => {
       Create a Cleanup
       </Link>
     </div>
-
   )
 
 
