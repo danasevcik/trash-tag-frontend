@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const ProjectCard = (props) => {
 
@@ -17,6 +18,14 @@ const ProjectCard = (props) => {
       <img className="img" alt="before clean up" src={props.project.start_image}/>
       <img className="img" alt="finished clean up" src={props.project.end_image}/>
       <p>{props.project.story}</p>
+      {props.upcoming &&
+        (<div>
+          <Link to={`/home/upcoming-projects/${props.project.id}`}>
+            <button>Show</button>
+          </Link>
+          <button>Join</button>
+        </div>)
+      }
     </div>
   )
 }

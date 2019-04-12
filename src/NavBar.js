@@ -11,6 +11,9 @@ const NavBar = () => {
       <Link to="/home/upcoming-projects">
         Upcoming Projects
       </Link>
+      <Link to="/home/new-project">
+      Create a Cleanup
+      </Link>
     </div>
 
   )
