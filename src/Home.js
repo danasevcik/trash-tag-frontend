@@ -13,8 +13,8 @@ class Home extends React.Component {
 
   componentDidMount() {
     console.log("in home cDM", this.props.user.username);
-    if (this.props.user.username) {
-      let token = localStorage.getItem("token")
+    let token = localStorage.getItem("token")
+    if (!!token) {
       console.log(token);
       fetch('http://localhost:3000/projects', {
         method: 'GET',

@@ -69,13 +69,15 @@ class App extends Component {
     .then(data => {
       this.setState({ user: data.user});
       localStorage.setItem("token", data.token);
+      this.props.history.push('/home/upcoming-projects')
     })
   }
 
   logout = () => {
     console.log('clicked');
     localStorage.removeItem("token")
-    this.props.history.push('/home')
+    this.setState({user: {}})
+    return <Redirect to='/xyz'/>
   }
 
 

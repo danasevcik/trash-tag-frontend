@@ -11,8 +11,8 @@ const NavBar = (props) => {
       <Link to="/signup">
         Signup
       </Link>
-      {props.user.username ? (
-        <Link to="/home" onClick={props.logout}>Logout</Link>)
+      {!!localStorage.getItem("token") ? (
+        <Link to="/" onClick={props.logout}>Logout</Link>)
         :
         (<Link to="/login">Login</Link>)}
       <Link to="/home/upcoming-projects">
