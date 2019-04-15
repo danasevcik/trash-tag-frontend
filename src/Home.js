@@ -48,6 +48,7 @@ class Home extends React.Component {
 
   submitHandler = (newProjectObj) => {
     let token = localStorage.getItem("token");
+    console.log('in new form - before fetch');
     fetch('http://localhost:3000/projects', {
       method: 'POST',
       headers: {
@@ -60,9 +61,10 @@ class Home extends React.Component {
     .then(resp => resp.json())
     .then(project => {
       console.log(this.props.history);
-      let newProjects = [project, ...this.state.projects];
+      let newProjects = [project[0], ...this.state.projects];
+      console.log(project[0]);
       this.setState({projects: newProjects}, () => {
-        return this.props.history.push(`/home/upcoming-projects/${project.id}`)
+        return this.props.history.push(`/home/upcoming-projects/${project[0].id}`)
       });
     })
   }
@@ -73,7 +75,10 @@ class Home extends React.Component {
         <Switch>
           <Route path="/home/upcoming-projects/:id" render={(routerProps) => {
               let id = parseInt(routerProps.match.params.id);
+              console.log(routerProps.match.params);
+              console.log(id);
               let project = this.state.projects.find(project => project.id === id)
+              console.log(project);
               return <ProjectCard project={project}/>
             }}
           />
