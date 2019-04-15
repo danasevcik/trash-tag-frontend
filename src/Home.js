@@ -12,14 +12,26 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/projects')
-    .then(resp => resp.json())
-    .then(projects => (
-      this.setState({ projects })
-    ))
+    console.log("in home cDM", this.props.user.username);
+    if (this.props.user.username) {
+      let token = localStorage.getItem("token")
+      console.log(token);
+      fetch('http://localhost:3000/projects', {
+        method: 'GET',
+        headers: {
+          Authorization: `${token}`
+      }
+     })
+      .then(resp => resp.json())
+      .then(projects => (
+        this.setState({ projects }, console.log)
+      ))} else {
+        this.props.history.push('/signup')
+      }
   }
 
   completedProjects = () => {
+    console.log(this.state.projects)
     let completedProjects = this.state.projects.filter(project => {
       return project.completed
     })
@@ -35,11 +47,13 @@ class Home extends React.Component {
   }
 
   submitHandler = (newProjectObj) => {
+    let token = localStorage.getItem("token");
     fetch('http://localhost:3000/projects', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        Accepts: 'application/json',
+        Authorization: `${token}`
       },
       body: JSON.stringify(newProjectObj)
     })
