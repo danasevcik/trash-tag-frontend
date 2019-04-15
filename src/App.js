@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import NavBar from './NavBar';
 import Home from './Home';
 import Signup from './Signup';
@@ -15,19 +15,23 @@ class App extends Component {
 
   componentDidMount() {
     let token = localStorage.getItem("token");
-    console.log("app did mount", token);
-    fetch("http://localhost:3000/get_user", {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        accepts: "application/json",
-        Authorization: `${token}`
-      }
-    })
-    .then(resp => resp.json())
-    .then(data => {
-      this.setState({ user: data.user })
-    });
+    if (!!token) {
+      console.log("app did mount", token);
+      fetch("http://localhost:3000/get_user", {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          accepts: "application/json",
+          Authorization: `${token}`
+        }
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({ user: data.user })
+      });
+    } else {
+      return <Redirect to="/home" />
+    }
   }
 
   createUser = userInfo => {
@@ -49,12 +53,37 @@ class App extends Component {
       })
   };
 
+  findUser = userInfo => {
+    console.log('in find user');
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        accepts: "application/json"
+      },
+      body: JSON.stringify({
+        user: { username: userInfo.username, password: userInfo.password }
+      })
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      this.setState({ user: data.user});
+      localStorage.setItem("token", data.token);
+    })
+  }
+
+  logout = () => {
+    console.log('clicked');
+    localStorage.removeItem("token")
+    this.props.history.push('/home')
+  }
+
 
   render() {
     console.log(this.state)
     return (
       <React.Fragment>
-        <NavBar />
+        <NavBar user={this.state.user} logout={this.logout}/>
         <Switch>
           <Route
             path="/home"
@@ -65,7 +94,10 @@ class App extends Component {
             path="/signup"
             render={() => <Signup submitHandler={this.createUser} />}
           />
-          <Route path="/login" component={Login}/>
+          <Route
+            path="/login"
+            render={() => <Login submitHandler={this.findUser} />}
+          />
           <Route path="/" component={Error}/>
         </Switch>
       </React.Fragment>
@@ -73,4 +105,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

@@ -27,22 +27,11 @@ const ProjectCard = (props) => {
       ))
     }
 
-
-
-
-    console.log(props.project);
   return (
     <div>
       <h3>{props.project.name}</h3>
       <h5>Location: {props.project.location}</h5>
       <h5>Time: {props.project.time}</h5>
-      <h5>Volunteers:
-        {
-          props.project.volunteers.map(volunteer => (
-            volunteer.id
-          ))
-        }
-      </h5>
       <img className="img" alt="before clean up" src={props.project.start_image}/>
       <p>{props.project.story}</p>
       {props.upcoming ?

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = (props) => {
 
   return (
     <div>
@@ -11,6 +11,10 @@ const NavBar = () => {
       <Link to="/signup">
         Signup
       </Link>
+      {props.user.username ? (
+        <Link to="/home" onClick={props.logout}>Logout</Link>)
+        :
+        (<Link to="/login">Login</Link>)}
       <Link to="/home/upcoming-projects">
         Upcoming Projects
       </Link>
