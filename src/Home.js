@@ -79,7 +79,16 @@ class Home extends React.Component {
               console.log(id);
               let project = this.state.projects.find(project => project.id === id)
               console.log(project);
-              return <ProjectCard project={project}/>
+              return <ProjectCard project={project} upcomingShow />
+            }}
+          />
+          <Route path="/home/completed-projects/:id" render={(routerProps) => {
+              let id = parseInt(routerProps.match.params.id);
+              console.log(routerProps.match.params);
+              console.log(id);
+              let project = this.state.projects.find(project => project.id === id)
+              console.log(project);
+              return <ProjectCard project={project} completedShow />
             }}
           />
           <Route path="/home/upcoming-projects" render={(routerProps) => (

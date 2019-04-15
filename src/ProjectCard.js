@@ -34,23 +34,31 @@ const ProjectCard = (props) => {
       <h5>Time: {props.project.time}</h5>
       <img className="img" alt="before clean up" src={props.project.start_image}/>
       <p>{props.project.story}</p>
-      {props.upcoming ?
+      {props.upcoming &&
         (<div>
           <Link to={`/home/upcoming-projects/${props.project.id}`}>
             <button>Show</button>
           </Link>
+        </div>)
+      }
+      {props.upcomingShow &&
+        (<div>
           <button onClick={(e) => joinProject(props.project.id)}>Join</button>
         </div>)
-        :
-        <img className="img" alt="finished clean up" src={props.project.end_image}/>
-
       }
-
+      {props.completed &&
+        (<div>
+          <Link to={`/home/completed-projects/${props.project.id}`}>
+            <button>Show</button>
+          </Link>
+          <img className="img" alt="finished clean up" src={props.project.end_image}/>
+        </div>)
+      }
+      {props.completedShow && <img className="img" alt="finished clean up" src={props.project.end_image}/>}
     </div>
-  )
+    )
+
 }
 
 
 export default withRouter(ProjectCard);
-
-// <h5>Date: {newDate(props.project.date)}</h5>

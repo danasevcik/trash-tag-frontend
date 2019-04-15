@@ -6,6 +6,7 @@ import Home from './Home';
 import Signup from './Signup';
 import Login from './Login';
 import Error from './Error';
+import ProfilePage from './ProfilePage';
 
 class App extends Component {
 
@@ -99,6 +100,10 @@ class App extends Component {
           <Route
             path="/login"
             render={() => <Login submitHandler={this.findUser} />}
+          />
+          <Route
+            path="/my-profile"
+            render={() => <ProfilePage user={this.state.user} />}
           />
           <Route path="/" component={Error}/>
         </Switch>
