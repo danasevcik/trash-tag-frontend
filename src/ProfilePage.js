@@ -22,7 +22,7 @@ class ProfilePage extends React.Component {
         {this.props.user.user.current_city && <h3>Current City: {this.props.user.user.current_city}</h3>}
         {this.props.user.user.age && <h3>Age: {this.props.user.user.age}</h3>}
         {this.props.user.user.bio && <p>Bio: {this.props.user.user.bio}</p>}
-        <button onClick={this.clickHandler}>Edit Profile</button>
+        <button onClick={this.clickHandler} class="ui black fluid basic button">Edit Profile</button>
         {this.state.clicked ? <ProfileEdit user={this.props.user.user} submitHandler={this.clickHandler} updateUser={this.props.updateUser}/> : null}
       </div>
     )}

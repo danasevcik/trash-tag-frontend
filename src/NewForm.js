@@ -21,7 +21,7 @@ class NewForm extends React.Component {
     this.props.submitHandler(this.state)
     this.setState({
       name: "",
-      location: "", 
+      location: "",
       date: "",
       story: "",
       start_image: "",
@@ -74,7 +74,7 @@ class NewForm extends React.Component {
           value={this.state.time}
           onChange={this.changeHandler}
         />
-        <button>Create Cleanup!</button>
+        <button class="ui black fluid basic button">Create Cleanup!</button>
       </form>
     );
   }

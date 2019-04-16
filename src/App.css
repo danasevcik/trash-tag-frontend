@@ -1,5 +1,25 @@
+
+*, h1, h2, h3, h4, h5, h6{
+  /* src: url("https://fonts.googleapis.com/css?family=Amatic+SC"); */
+  /* font-family: 'Cute Font', cursive; */
+  font-family: 'Amatic SC', cursive;
+  font-size: 25px
+}
+
+body {
+  /* background-color: teal; */
+  background-image: url("https://images.unsplash.com/photo-1433185000771-ec45c869c61b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 200px;
+}
+
 .App {
   text-align: center;
+}
+
+@font-face {
 }
 
 .App-logo {
