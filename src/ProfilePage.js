@@ -13,7 +13,6 @@ class ProfilePage extends React.Component {
   }
 
   render() {
-    console.log(' in render');
     return (
       <div>
         <h1>{this.props.user.user.username}</h1>

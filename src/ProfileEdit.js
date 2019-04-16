@@ -18,7 +18,6 @@ class ProfileEdit extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault()
-    console.log(this.props.user.user_id);
     let token = localStorage.getItem("token");
     let userId = parseInt(this.props.user.user_id)
     fetch(`http://localhost:3000/users/${userId}`, {
@@ -39,7 +38,6 @@ class ProfileEdit extends React.Component {
 
 
   render() {
-    console.log(this.props)
     return (
       <form onSubmit={this.submitHandler}>
         <input

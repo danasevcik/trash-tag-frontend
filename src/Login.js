@@ -15,7 +15,6 @@ class Login extends React.Component {
   submitHandler = e => {
     e.preventDefault();
     this.props.submitHandler(this.state);
-    console.log('in login', this.state);
     this.setState({
       username: "",
       password: ""

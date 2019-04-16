@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter, Redirect } from 'react-router-dom'
+import ProjectEdit from './ProjectEdit'
 
 const ProjectCard = (props) => {
 
@@ -21,6 +22,7 @@ const ProjectCard = (props) => {
         body: JSON.stringify({project_id: parseInt(projectId), admin: false})
       })
       .then(resp => resp.json())
+      .then(resp => props.updateProject(resp))
       .then(resp => (
         props.history.push(`/home/upcoming-projects/${projectId}`)
       ))
@@ -33,19 +35,21 @@ const ProjectCard = (props) => {
       return volunteers.join(", ")
     }
 
-    const volunteer = () => {
-      console.log(props.user)
+    // THIS WILL RETURN true or false (if the user is the admin or not)
+    const volunteer = (props) => {
       let volunteer = props.project.volunteers.find( v => {
         return v.user_id === props.user.user_id
       })
-      admin(volunteer)
+      if (volunteer) {
+        return admin(volunteer)
+      }
     }
-
     const admin = (volunteer) => {
-      return volunteer.admin
+      if (!!volunteer.admin) {
+        return !!volunteer.admin
+      }
     }
 
-// volunteer()
   return (
     <div>
       <h3>{props.project.name}</h3>
@@ -53,17 +57,17 @@ const ProjectCard = (props) => {
       <h5>Date: {newDate(props.project.date)}</h5>
       <h5>Time: {props.project.time}</h5>
       <img className="img" alt="before clean up" src={props.project.start_image}/>
-      {(props.project.completed === false && volunteer()) ?
+      <p>{props.project.story}</p>
+      <p>Volunteers: {getVolunteers(props.project)}</p>
+      {(volunteer(props) && (props.upcoming || props.upcomingShow)) ?
         (<div>
-          <Link to={`/home/upcoming-projects/${props.project.id}`}>
-            <button></button>
+          <Link to={`/home/upcoming-projects/${props.project.id}/edit`}>
+            <button project={props.project} completeProject={props.completeProject}>Complete Project</button>
           </Link>
         </div>)
         :
         null
       }
-      <p>{props.project.story}</p>
-      <p>Volunteers: {getVolunteers(props.project)}</p>
       {props.upcoming &&
         (<div>
           <Link to={`/home/upcoming-projects/${props.project.id}`}>
