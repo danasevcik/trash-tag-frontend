@@ -4,7 +4,7 @@ import ProjectCard from './ProjectCard'
 const UpcomingProjects = (props) => {
 
   let projects = props.projects.map(project => {
-    return <ProjectCard key={project.id} project={project} upcoming/>
+    return <ProjectCard key={project.id} project={project} upcoming user={props.user}/>
   })
 
   return (

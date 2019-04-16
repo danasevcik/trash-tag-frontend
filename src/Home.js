@@ -12,7 +12,6 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    console.log("in home cDM", this.props.user.username);
     let token = localStorage.getItem("token")
     if (!!token) {
       console.log(token);
@@ -31,7 +30,6 @@ class Home extends React.Component {
   }
 
   completedProjects = () => {
-    console.log(this.state.projects)
     let completedProjects = this.state.projects.filter(project => {
       return project.completed
     })
@@ -48,7 +46,6 @@ class Home extends React.Component {
 
   submitHandler = (newProjectObj) => {
     let token = localStorage.getItem("token");
-    console.log('in new form - before fetch');
     fetch('http://localhost:3000/projects', {
       method: 'POST',
       headers: {
@@ -75,11 +72,8 @@ class Home extends React.Component {
         <Switch>
           <Route path="/home/upcoming-projects/:id" render={(routerProps) => {
               let id = parseInt(routerProps.match.params.id);
-              console.log(routerProps.match.params);
-              console.log(id);
               let project = this.state.projects.find(project => project.id === id)
-              console.log(project);
-              return <ProjectCard project={project} upcomingShow />
+              return <ProjectCard project={project} upcomingShow user={this.props.user}/>
             }}
           />
           <Route path="/home/completed-projects/:id" render={(routerProps) => {
@@ -87,12 +81,11 @@ class Home extends React.Component {
               console.log(routerProps.match.params);
               console.log(id);
               let project = this.state.projects.find(project => project.id === id)
-              console.log(project);
               return <ProjectCard project={project} completedShow />
             }}
           />
           <Route path="/home/upcoming-projects" render={(routerProps) => (
-            <UpcomingProjects projects={this.upcomingProjects()}/>
+            <UpcomingProjects projects={this.upcomingProjects()} user={this.props.user}/>
           )}/>
           <Route path="/home/new-project" render={(routerProps) => (
             <NewForm submitHandler={this.submitHandler} />

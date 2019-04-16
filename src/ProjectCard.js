@@ -10,7 +10,6 @@ const ProjectCard = (props) => {
   }
 
   const joinProject = (projectId) => {
-    console.log(projectId);
     let token = localStorage.getItem("token");
     fetch('http://localhost:3000/volunteers', {
       method: 'POST',
@@ -27,13 +26,44 @@ const ProjectCard = (props) => {
       ))
     }
 
+    const getVolunteers = (project) => {
+      let volunteers= project.volunteers.map( (v) => {
+        return v.username ? v.username : "anonymous user"
+      })
+      return volunteers.join(", ")
+    }
+
+    const volunteer = () => {
+      console.log(props.user)
+      let volunteer = props.project.volunteers.find( v => {
+        return v.user_id === props.user.user_id
+      })
+      admin(volunteer)
+    }
+
+    const admin = (volunteer) => {
+      return volunteer.admin
+    }
+
+// volunteer()
   return (
     <div>
       <h3>{props.project.name}</h3>
       <h5>Location: {props.project.location}</h5>
+      <h5>Date: {newDate(props.project.date)}</h5>
       <h5>Time: {props.project.time}</h5>
       <img className="img" alt="before clean up" src={props.project.start_image}/>
+      {(props.project.completed === false && volunteer()) ?
+        (<div>
+          <Link to={`/home/upcoming-projects/${props.project.id}`}>
+            <button></button>
+          </Link>
+        </div>)
+        :
+        null
+      }
       <p>{props.project.story}</p>
+      <p>Volunteers: {getVolunteers(props.project)}</p>
       {props.upcoming &&
         (<div>
           <Link to={`/home/upcoming-projects/${props.project.id}`}>

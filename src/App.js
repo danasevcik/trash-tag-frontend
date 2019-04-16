@@ -53,7 +53,6 @@ class App extends Component {
   };
 
   findUser = userInfo => {
-    console.log('in find user');
     fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
@@ -73,7 +72,6 @@ class App extends Component {
   }
 
   updateUser = (userObj) => {
-    console.log('update user', userObj);
     this.setState({user: userObj})
   }
 
@@ -86,7 +84,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state)
     return (
       <React.Fragment>
         <NavBar user={this.state.user} logout={this.logout}/>
