@@ -17,7 +17,6 @@ class App extends Component {
   componentDidMount() {
     let token = localStorage.getItem("token");
     if (!!token) {
-      console.log("app did mount", token);
       fetch("http://localhost:3000/get_user", {
         method: "GET",
         headers: {
@@ -36,7 +35,6 @@ class App extends Component {
   }
 
   createUser = userInfo => {
-    console.log('create user', userInfo);
     fetch("http://localhost:3000/signup", {
       method: "POST",
       headers: {
@@ -74,6 +72,11 @@ class App extends Component {
     })
   }
 
+  updateUser = (userObj) => {
+    console.log('update user', userObj);
+    this.setState({user: userObj})
+  }
+
   logout = () => {
     console.log('clicked');
     localStorage.removeItem("token")
@@ -103,7 +106,7 @@ class App extends Component {
           />
           <Route
             path="/my-profile"
-            render={() => <ProfilePage user={this.state.user} />}
+            render={() => <ProfilePage user={this.state} updateUser={this.updateUser}/>}
           />
           <Route path="/" component={Error}/>
         </Switch>

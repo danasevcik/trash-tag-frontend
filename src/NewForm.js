@@ -21,7 +21,7 @@ class NewForm extends React.Component {
     this.props.submitHandler(this.state)
     this.setState({
       name: "",
-      location: "",
+      location: "", 
       date: "",
       story: "",
       start_image: "",

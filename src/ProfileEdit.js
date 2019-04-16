@@ -1,14 +1,15 @@
 import React from 'react';
+import {Redirect, Route} from 'react-router-dom';
 
 class ProfileEdit extends React.Component {
 
   state = {
-    name: "",
-    picture: "",
-    hometown: "",
-    current_city: "",
-    age: "",
-    bio: ""
+    name: this.props.user.name || '',
+    picture: this.props.user.picture || '',
+    hometown: this.props.user.hometown || '',
+    current_city: this.props.user.current_city || '',
+    age: this.props.user.age || '',
+    bio: this.props.user.bio || ''
   }
 
   changeHandler = (e) => {
@@ -17,23 +18,30 @@ class ProfileEdit extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault()
-//PATCH request to /users/id but id is hidden, only have username for ~Saaafety~
-    this.setState({
-      name: "",
-      picture: "",
-      hometown: "",
-      current_city: "",
-      age: "",
-      bio: ""
+    console.log(this.props.user.user_id);
+    let token = localStorage.getItem("token");
+    let userId = parseInt(this.props.user.user_id)
+    fetch(`http://localhost:3000/users/${userId}`, {
+      method: 'PATCH',
+      headers: {
+        "content-type": "application/json",
+        accepts: "application/json",
+        Authorization: `${token}`
+      },
+      body: JSON.stringify({
+        user: { name: this.state.name, picture: this.state.picture, hometown: this.state.hometown, current_city: this.state.current_city, age: this.state.age, bio: this.state.bio }
+      })
     })
-    this.props.submitHandler()
+    .then(resp => resp.json())
+    .then(resp => this.props.updateUser(resp))
+    .then(this.props.submitHandler())
   }
 
 
   render() {
-    console.log(this.props.user.id)
+    console.log(this.props)
     return (
-      <form>
+      <form onSubmit={this.submitHandler}>
         <input
           type="text"
           name="name"
