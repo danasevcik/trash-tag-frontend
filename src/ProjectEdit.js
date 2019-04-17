@@ -33,10 +33,12 @@ class ProjectEdit extends React.Component {
 
   render() {
     return (
-      <div>
-      <h2>{this.props.project.name}</h2>
-      <img src={this.props.project.start_image} alt="before cleanup" style={{height: '100px', width: '100px'}}/>
-      <form onSubmit={this.submitHandler}>
+      <div class="ui inverted segment" style={{padding: "15px", margin: "10px"}}>
+      <h2 style={{textAlign: "center", fontSize:'30px'}}>{this.props.project.name}</h2>
+      <img src={this.props.project.start_image} alt="before cleanup" style={{height: '100px', width: '100px', marginLeft: '46.5%'}}/>
+      <form onSubmit={this.submitHandler} className="ui centered form">
+        <div className="field">
+        <div className="ui input">
         <input
           type="text"
           name="end_image"
@@ -44,7 +46,9 @@ class ProjectEdit extends React.Component {
           value={this.state.end_image}
           onChange={this.changeHandler}
         />
-      <button className="ui black fluid basic button">Complete Project</button>
+        </div>
+        </div>
+      <button className="ui fluid button">Complete Project</button>
       </form>
       </div>
     )

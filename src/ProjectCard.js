@@ -62,7 +62,6 @@ const ProjectCard = (props) => {
           <img className="img" alt="before clean up" src={props.project.start_image} className="ui image"/>
           {(volunteer(props) && (props.upcoming || props.upcomingShow)) ?
             (<div>
-              <p>Volunteers: {getVolunteers(props.project)}</p>
               <Link to={`/home/upcoming-projects/${props.project.id}/edit`}>
                 <button project={props.project} completeProject={props.completeProject} className="ui black fluid basic button">Complete Project</button>
               </Link>
@@ -79,8 +78,8 @@ const ProjectCard = (props) => {
           }
           {props.upcomingShow &&
             (<div>
-              <p>Volunteers: {getVolunteers(props.project)}</p>
               <button onClick={(e) => joinProject(props.project.id)} className="ui black fluid basic button">Join</button>
+              <p>Volunteers: {getVolunteers(props.project)}</p>
             </div>)
           }
           {props.completed &&
