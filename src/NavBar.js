@@ -19,6 +19,7 @@ const NavBar = (props) => {
         <div class="right menu">
         {!!localStorage.getItem("token") ? (
           <React.Fragment >
+            <i aria-hidden="true" class="user circle outline big icon" style={{width: '25px'}}></i>
             <Link to="/my-profile" class="item">My Profile</Link>
             <Link to="/" onClick={props.logout} class="item">Logout</Link>
           </React.Fragment>)

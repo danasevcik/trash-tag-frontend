@@ -44,7 +44,7 @@ class ProjectEdit extends React.Component {
           value={this.state.end_image}
           onChange={this.changeHandler}
         />
-        <button>COMPLETE</button>
+      <button class="ui black fluid basic button">Complete Project</button>
       </form>
       </div>
     )

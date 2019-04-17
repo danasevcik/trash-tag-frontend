@@ -9,7 +9,7 @@ const CompletedProjects = (props) => {
 
   return (
     <div>
-      <h1>CompletedProjects go here</h1>
+      <h1>Completed Projects</h1>
       {projects}
     </div>
   )

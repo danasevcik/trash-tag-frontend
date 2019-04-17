@@ -31,51 +31,81 @@ class NewForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Project Name"
-          value={this.state.name}
-          onChange={this.changeHandler}
-        />
-        <input
-          type="text"
-          name="location"
-          placeholder="Project Location"
-          value={this.state.location}
-          onChange={this.changeHandler}
-        />
-        <input
-          type="date"
-          name="date"
-          placeholder="Date"
-          value={this.state.date}
-          onChange={this.changeHandler}
-        />
-        <input
-          type="textarea"
-          name="story"
-          placeholder="Why do you want to clean up this area?"
-          value={this.state.story}
-          onChange={this.changeHandler}
-        />
-        <input
-          type="text"
-          name="start_image"
-          placeholder="Before Photo"
-          value={this.state.start_image}
-          onChange={this.changeHandler}
-        />
-        <input
-          type="time"
-          name="time"
-          placeholder="What time does your cleanup start?"
-          value={this.state.time}
-          onChange={this.changeHandler}
-        />
-        <button class="ui black fluid basic button">Create Cleanup!</button>
-      </form>
+      <div class="ui inverted segment" style={{padding: '15px', margin: '10px'}}>
+        <form onSubmit={this.submitHandler} class="ui form">
+          <div class="equal width fields">
+            <div class="field">
+              <div class="ui input">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Project Name"
+                  value={this.state.name}
+                  onChange={this.changeHandler}
+                  />
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui input">
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Project Location"
+                  value={this.state.location}
+                  onChange={this.changeHandler}
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui input">
+                  <input
+                    type="date"
+                    name="date"
+                    placeholder="Date"
+                    value={this.state.date}
+                    onChange={this.changeHandler}
+                    />
+                </div>
+              </div>
+          </div>
+          <div class="equal width fields">
+            <div class="field">
+              <div class="ui input">
+                <input
+                  type="textarea"
+                  name="story"
+                  placeholder="Why do you want to clean up this area?"
+                  value={this.state.story}
+                  onChange={this.changeHandler}
+                  />
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui input">
+                <input
+                  type="text"
+                  name="start_image"
+                  placeholder="Before Photo"
+                  value={this.state.start_image}
+                  onChange={this.changeHandler}
+                  />
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui input">
+                <input
+                  type="time"
+                  name="time"
+                  placeholder="What time does your cleanup start?"
+                  value={this.state.time}
+                  onChange={this.changeHandler}
+                  />
+              </div>
+            </div>
+          </div>
+          <button class="ui fluid button">Create Cleanup!</button>
+        </form>
+      </div>
     );
   }
 

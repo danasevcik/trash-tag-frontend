@@ -23,23 +23,33 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.submitHandler}>
-          <input
-           type="text"
-           placeholder="username"
-           name="username"
-           value={this.state.username}
-           onChange={this.changeHandler}
-          />
-          <input
-           type="password"
-           placeholder="password"
-           name="password"
-           value={this.state.password}
-           onChange={this.changeHandler}
-          />
-          <button>Sign Up</button>
+      <div class="ui inverted segment">
+        <form onSubmit={this.submitHandler} class="ui inverted form">
+          <div class="equal width fields">
+            <div class="field">
+              <div class="ui fluid input">
+                <input
+                 type="text"
+                 placeholder="username"
+                 name="username"
+                 value={this.state.username}
+                 onChange={this.changeHandler}
+                />
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui fluid input">
+                <input
+                 type="password"
+                 placeholder="password"
+                 name="password"
+                 value={this.state.password}
+                 onChange={this.changeHandler}
+                />
+              </div>
+            </div>
+          </div>
+          <button class="ui fluid button">Sign Up</button>
         </form>
       </div>
     )

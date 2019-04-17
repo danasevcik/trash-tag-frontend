@@ -82,7 +82,7 @@ class ProfileEdit extends React.Component {
           value={this.state.bio}
           onChange={this.changeHandler}
         />
-        <button>Save these changes</button>
+      <button class="ui black fluid basic button">Save These Changes</button>
       </form>
     )
   }

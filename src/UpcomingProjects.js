@@ -9,7 +9,7 @@ const UpcomingProjects = (props) => {
 
   return (
     <div>
-      <h1>UpcomingProjects go here</h1>
+      <h1>Upcoming Projects</h1>
       {projects}
     </div>
   )
