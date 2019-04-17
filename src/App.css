@@ -8,11 +8,14 @@
 
 body {
   /* background-color: teal; */
-  background-image: url("https://images.unsplash.com/photo-1433185000771-ec45c869c61b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80");
+  background-image: url("https://dingo.care2.com/pictures/causes/3178/3177835.large.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  height: 200px;
+  background-size: cover;
+  height: 800px;
+  width: 100%;
+  position: relative;
 }
 
 .App {
@@ -55,4 +58,13 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.error {
+  background: url("https://www.graziame.com/sites/default/files/graziame/styles/1140_630_wide_landscape/public/images/2019/03/13/dustan-woodhouse-675082-unsplash.jpg?itok=cC7oDM6M")
+  no-repeat fixed;
+  background-size: cover;
+  height: 800px;
+  width: 100%;
+  position: relative;
 }

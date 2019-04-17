@@ -52,7 +52,7 @@ const ProjectCard = (props) => {
 
   return (
     <div className="ui center aligned container">
-      <div className="ui centered card" style={{opacity: '0.75', marginBottom: "20px"}}>
+      <div className="ui centered card" style={{opacity: '0.75', marginBottom: "20px", backgroundColor:'white'}}>
         <div className="content">
           <h3 style={{fontSize: "50px"}}>{props.project.name}</h3>
           <h5 >Location: {props.project.location}</h5>

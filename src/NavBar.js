@@ -5,7 +5,7 @@ import { Menu, Segment } from 'semantic-ui-react';
 const NavBar = (props) => {
 
   return (
-    <div className="ui inverted segment">
+    <div className="ui inverted segment" style={{margin: '0'}}>
       <div className="ui inverted pointing secondary menu">
         <Link to="/home" className="item">
           Home
