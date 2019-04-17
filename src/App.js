@@ -27,7 +27,7 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(data => {
-        console.log(data); 
+        console.log(data);
         this.setState({ user: data.user })
       });
     } else {
@@ -48,8 +48,12 @@ class App extends Component {
     })
       .then(resp => resp.json())
       .then(data => {
-        this.setState({ user: data.user});
-        localStorage.setItem("token", data.token);
+        if (data.errors) {
+          this.props.history.push('/login')
+        } else {
+          this.setState({ user: data.user});
+          localStorage.setItem("token", data.token);
+        }
       })
   };
 
@@ -66,9 +70,13 @@ class App extends Component {
     })
     .then(resp => resp.json())
     .then(data => {
-      this.setState({ user: data.user});
-      localStorage.setItem("token", data.token);
-      this.props.history.push('/home/upcoming-projects')
+      if (data.message) {
+        this.props.history.push('/signup')
+      } else {
+        this.setState({ user: data.user});
+        localStorage.setItem("token", data.token);
+        this.props.history.push('/home/upcoming-projects')
+      }
     })
   }
 
@@ -87,7 +95,9 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar user={this.state.user} logout={this.logout}/>
+        <div id="navbar">
+          <NavBar user={this.state.user} logout={this.logout}/>
+        </div>
         <Switch>
           <Route
             path="/home"

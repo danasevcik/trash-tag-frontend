@@ -60,6 +60,14 @@ body {
   }
 }
 
+#navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  margin-bottom: 25px;
+}
+
 .error {
   background: url("https://www.graziame.com/sites/default/files/graziame/styles/1140_630_wide_landscape/public/images/2019/03/13/dustan-woodhouse-675082-unsplash.jpg?itok=cC7oDM6M")
   no-repeat fixed;

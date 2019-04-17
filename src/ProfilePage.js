@@ -1,7 +1,5 @@
 import React from 'react'
 import ProfileEdit from './ProfileEdit'
-import { Route } from 'react-router-dom'
-import ProjectCard from './ProjectCard'
 
 class ProfilePage extends React.Component {
 
@@ -12,13 +10,6 @@ class ProfilePage extends React.Component {
   clickHandler = () => {
     this.setState({clicked: !this.state.clicked})
   }
-
-  // getProjects = () => {
-  //   console.log(this.props);
-  //   this.props.user.user.projects.map(project => {
-  //     return <ProjectCard project={project}/>
-  //   })
-  // }
 
   render() {
     console.log(this.props.user.user.projects);

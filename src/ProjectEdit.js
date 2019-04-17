@@ -35,7 +35,7 @@ class ProjectEdit extends React.Component {
     return (
       <div>
       <h2>{this.props.project.name}</h2>
-      <img src={this.props.project.start_image} alt="start image" style={{height: '100px', width: '100px'}}/>
+      <img src={this.props.project.start_image} alt="before cleanup" style={{height: '100px', width: '100px'}}/>
       <form onSubmit={this.submitHandler}>
         <input
           type="text"

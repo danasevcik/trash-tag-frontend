@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom'
-import ProjectEdit from './ProjectEdit'
+// import ProjectEdit from './ProjectEdit'
 
 const ProjectCard = (props) => {
 
