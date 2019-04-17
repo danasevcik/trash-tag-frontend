@@ -31,11 +31,11 @@ class NewForm extends React.Component {
 
   render() {
     return (
-      <div class="ui inverted segment" style={{padding: '15px', margin: '10px'}}>
-        <form onSubmit={this.submitHandler} class="ui form">
-          <div class="equal width fields">
-            <div class="field">
-              <div class="ui input">
+      <div className="ui inverted segment" style={{padding: '15px', margin: '10px'}}>
+        <form onSubmit={this.submitHandler} className="ui form">
+          <div className="equal width fields">
+            <div className="field">
+              <div className="ui input">
                 <input
                   type="text"
                   name="name"
@@ -45,8 +45,8 @@ class NewForm extends React.Component {
                   />
               </div>
             </div>
-            <div class="field">
-              <div class="ui input">
+            <div className="field">
+              <div className="ui input">
                 <input
                   type="text"
                   name="location"
@@ -56,8 +56,8 @@ class NewForm extends React.Component {
                   />
                 </div>
               </div>
-              <div class="field">
-                <div class="ui input">
+              <div className="field">
+                <div className="ui input">
                   <input
                     type="date"
                     name="date"
@@ -68,9 +68,9 @@ class NewForm extends React.Component {
                 </div>
               </div>
           </div>
-          <div class="equal width fields">
-            <div class="field">
-              <div class="ui input">
+          <div className="equal width fields">
+            <div className="field">
+              <div className="ui input">
                 <input
                   type="textarea"
                   name="story"
@@ -80,8 +80,8 @@ class NewForm extends React.Component {
                   />
               </div>
             </div>
-            <div class="field">
-              <div class="ui input">
+            <div className="field">
+              <div className="ui input">
                 <input
                   type="text"
                   name="start_image"
@@ -91,8 +91,8 @@ class NewForm extends React.Component {
                   />
               </div>
             </div>
-            <div class="field">
-              <div class="ui input">
+            <div className="field">
+              <div className="ui input">
                 <input
                   type="time"
                   name="time"
@@ -103,7 +103,7 @@ class NewForm extends React.Component {
               </div>
             </div>
           </div>
-          <button class="ui fluid button">Create Cleanup!</button>
+          <button className="ui fluid button">Create Cleanup!</button>
         </form>
       </div>
     );

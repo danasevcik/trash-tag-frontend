@@ -8,8 +8,8 @@ const CompletedProjects = (props) => {
   })
 
   return (
-    <div>
-      <h1>Completed Projects</h1>
+    <div className="ui center aligned container">
+      <h1 style={{fontSize: "50px"}}>Completed Projects</h1>
       {projects}
     </div>
   )

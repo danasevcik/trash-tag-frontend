@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter, Redirect } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import ProjectEdit from './ProjectEdit'
 
 const ProjectCard = (props) => {
@@ -51,50 +51,52 @@ const ProjectCard = (props) => {
     }
 
   return (
-    <div class="ui card" style={{opacity: '0.75'}}>
-      <div class="content">
-        <h3 class="header">{props.project.name}</h3>
-        <h5 >Location: {props.project.location}</h5>
-        <h5>Date: {newDate(props.project.date)}</h5>
-        <h5>Time: {props.project.time}</h5>
-        <p>{props.project.story}</p>
-        <img className="img" alt="before clean up" src={props.project.start_image} class="ui image"/>
-        {(volunteer(props) && (props.upcoming || props.upcomingShow)) ?
-          (<div>
-            <p>Volunteers: {getVolunteers(props.project)}</p>
-            <Link to={`/home/upcoming-projects/${props.project.id}/edit`}>
-              <button project={props.project} completeProject={props.completeProject} class="ui black fluid basic button">Complete Project</button>
-            </Link>
-          </div>)
-          :
-          null
-        }
-        {props.upcoming &&
-          (<div>
-            <Link to={`/home/upcoming-projects/${props.project.id}`}>
-              <button class="ui black fluid basic button">Show</button>
-            </Link>
-          </div>)
-        }
-        {props.upcomingShow &&
-          (<div>
-            <p>Volunteers: {getVolunteers(props.project)}</p>
-            <button onClick={(e) => joinProject(props.project.id)} class="ui black fluid basic button">Join</button>
-          </div>)
-        }
-        {props.completed &&
-          (<div>
-            <img className="img" alt="finished clean up" src={props.project.end_image} class="ui image"/>
-            <Link to={`/home/completed-projects/${props.project.id}`}>
-              <button class="ui black fluid basic button">Show</button>
-            </Link>
-          </div>)
-        }
-        {props.completedShow &&
-          (<div>
-            <img className="img" alt="finished clean up" src={props.project.end_image}/>
-            <p>Volunteers: {getVolunteers(props.project)}</p>
-          </div>)}
+    <div className="ui center aligned container">
+      <div className="ui centered card" style={{opacity: '0.75', marginBottom: "20px"}}>
+        <div className="content">
+          <h3 style={{fontSize: "50px"}}>{props.project.name}</h3>
+          <h5 >Location: {props.project.location}</h5>
+          <h5>Date: {newDate(props.project.date)}</h5>
+          <h5>Time: {props.project.time}</h5>
+          <p>{props.project.story}</p>
+          <img className="img" alt="before clean up" src={props.project.start_image} className="ui image"/>
+          {(volunteer(props) && (props.upcoming || props.upcomingShow)) ?
+            (<div>
+              <p>Volunteers: {getVolunteers(props.project)}</p>
+              <Link to={`/home/upcoming-projects/${props.project.id}/edit`}>
+                <button project={props.project} completeProject={props.completeProject} className="ui black fluid basic button">Complete Project</button>
+              </Link>
+            </div>)
+            :
+            null
+          }
+          {props.upcoming &&
+            (<div>
+              <Link to={`/home/upcoming-projects/${props.project.id}`}>
+                <button className="ui black fluid basic button">Show</button>
+              </Link>
+            </div>)
+          }
+          {props.upcomingShow &&
+            (<div>
+              <p>Volunteers: {getVolunteers(props.project)}</p>
+              <button onClick={(e) => joinProject(props.project.id)} className="ui black fluid basic button">Join</button>
+            </div>)
+          }
+          {props.completed &&
+            (<div>
+              <img className="img" alt="finished clean up" src={props.project.end_image} className="ui image"/>
+              <Link to={`/home/completed-projects/${props.project.id}`}>
+                <button className="ui black fluid basic button">Show</button>
+              </Link>
+            </div>)
+          }
+          {props.completedShow &&
+            (<div>
+              <img className="img" alt="finished clean up" src={props.project.end_image}/>
+              <p>Volunteers: {getVolunteers(props.project)}</p>
+            </div>)}
+        </div>
       </div>
     </div>
     )

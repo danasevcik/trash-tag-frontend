@@ -5,28 +5,28 @@ import { Menu, Segment } from 'semantic-ui-react';
 const NavBar = (props) => {
 
   return (
-    <div class="ui inverted segment">
-      <div class="ui inverted pointing secondary menu">
-        <Link to="/home" class="item">
+    <div className="ui inverted segment">
+      <div className="ui inverted pointing secondary menu">
+        <Link to="/home" className="item">
           Home
         </Link>
-        <Link to="/home/upcoming-projects" class="item">
+        <Link to="/home/upcoming-projects" className="item">
         Upcoming Projects
         </Link>
-        <Link to="/home/new-project" class="item">
+        <Link to="/home/new-project" className="item">
         Create a Cleanup
         </Link>
-        <div class="right menu">
+        <div className="right menu">
         {!!localStorage.getItem("token") ? (
           <React.Fragment >
-            <i aria-hidden="true" class="user circle outline big icon" style={{width: '25px'}}></i>
-            <Link to="/my-profile" class="item">My Profile</Link>
-            <Link to="/" onClick={props.logout} class="item">Logout</Link>
+            <i aria-hidden="true" className="user circle outline big icon" style={{width: '25px'}}></i>
+            <Link to="/my-profile" className="item">My Profile</Link>
+            <Link to="/" onClick={props.logout} className="item">Logout</Link>
           </React.Fragment>)
           :
           (<React.Fragment>
-            <Link to="/login" class="item">Login</Link>
-            <Link to="/signup" class="item">Signup</Link>
+            <Link to="/login" className="item">Login</Link>
+            <Link to="/signup" className="item">Signup</Link>
           </React.Fragment>)
           }
           </div>

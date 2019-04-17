@@ -23,11 +23,11 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div class="ui inverted segment">
-        <form onSubmit={this.submitHandler} class="ui inverted form">
-          <div class="equal width fields">
-            <div class="field">
-              <div class="ui fluid input">
+      <div className="ui inverted segment">
+        <form onSubmit={this.submitHandler} className="ui inverted form">
+          <div className="equal width fields">
+            <div className="field">
+              <div className="ui fluid input">
                 <input
                   type="text"
                   placeholder="username"
@@ -37,8 +37,8 @@ class Login extends React.Component {
                   />
               </div>
             </div>
-            <div class="field">
-              <div class="ui fluid input">
+            <div className="field">
+              <div className="ui fluid input">
                 <input
                   type="password"
                   placeholder="password"
@@ -49,7 +49,7 @@ class Login extends React.Component {
               </div>
             </div>
           </div>
-        <button class="ui fluid button">Login</button>
+        <button className="ui fluid button">Login</button>
         </form>
       </div>
     )
