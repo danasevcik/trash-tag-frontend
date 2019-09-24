@@ -9,7 +9,7 @@ TrashTag is a meetup app inspired by the #TrashTag Challenge, which enables auth
 TrashTag was built to connect people who all have a common goal of cleaning up the planet!
 
 ## Demo
-![demo gif](https://media.giphy.com/media/Izi7ftYv1n1UZserq5/200w_d.gif)
+![demo gif](https://media.giphy.com/media/kEcrCJnSPCxEKxp6DI/giphy.gif)
 
 You can watch a live demo of the app [here](https://www.youtube.com/watch?v=PD-wkOjpGTQ).
 
