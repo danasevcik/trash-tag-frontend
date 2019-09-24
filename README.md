@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TrashTag
 
-## Available Scripts
+TrashTag is a meetup app inspired by the #TrashTag Challenge, which enables authenticated users to post, view, and finalize upcoming and completed cleanup projects.
 
-In the project directory, you can run:
+![recycle gif](https://media.giphy.com/media/3o7TKJr0rcnn2TswAU/200w_d.gif)
 
-### `npm start`
+## Motivation
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+TrashTag was built to connect people who all have a common goal of cleaning up the planet!
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Demo
+![demo gif](https://media.giphy.com/media/Izi7ftYv1n1UZserq5/200w_d.gif)
 
-### `npm test`
+You can watch a live demo of the app [here](https://www.youtube.com/watch?v=PD-wkOjpGTQ).
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technology Used
+This project was built using a Ruby on Rails backend. The Github repo for the backend can be found [here](https://github.com/danasevcik/trash-tag-backend). Additional technologies used include:
+* React
+* JWT Authorization
+* React Routes
+* Semantic
+* Custom CSS
 
-### `npm run build`
+## Features
+TrashTag allows users to:
+* Create an account
+* Securely login to an existing account
+* Create new cleanup projects
+* Search through upcoming cleanup projects
+* Search through completed cleanup projects
+* Complete cleanup projects that they have created
+* Add before and after photos to their projects
+* View their profile  
+* Edit their profile
+* Securely log out
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to Use
+1. Visit the backend repo [here](https://github.com/danasevcik/trash-tag-backend) and follow instructions on the readme. The backend server should be started before the next steps are run.
+2. Clone this repository and run ```npm install```.
+3. Run using ```npm start```.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+![earth and stars](https://media.giphy.com/media/k8aQj7ocnGObrJLsja/giphy.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Enjoy!
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
